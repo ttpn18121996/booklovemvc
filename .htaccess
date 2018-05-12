@@ -1,0 +1,48 @@
+# HTID:4757933: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 0
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:4757933:
+
+ErrorDocument 404 http://localhost:81/nam_mvc/404.html
+ErrorDocument 403 http://localhost:81/nam_mvc/403.html
+ErrorDocument 500 http://localhost:81/nam_mvc/500.html
+
+RewriteEngine on
+
+DirectoryIndex home.html index.php
+Options -Indexes
+
+#index
+RewriteRule ^&p=([0-9]+)$ index.php?c=home&a=index&p=$1  [L]
+RewriteRule ^index.php&p=([0-9]+)$ index.php?c=home&a=index&p=$1  [L]
+
+#admin/controller
+RewriteRule ^admin/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=index  [L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=index&p=$2  [L]
+
+#admin/controller/action
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2  [L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&p=$3  [L]
+
+#admin/controller/action/alias
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2&alias=$3  [L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&alias=$3&p=$4  [L]
+
+#admin/controller/action/alias/parameter
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2&alias=$3&param=$4  [L]
+RewriteRule ^admin/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&alias=$3&param=$4&p=$5  [L]
+
+#controller
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?c=$1&a=index  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=index&p=$2  [L]
+
+#controller/action
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&p=$3  [L]
+
+#controller/action/alias
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2&alias=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&alias=$3&p=$4  [L]
+
+#controller/action/alias/parameter
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?c=$1&a=$2&alias=$3&param=$4  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?c=$1&a=$2&alias=$3&param=$4&p=$5  [L]
